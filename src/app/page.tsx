@@ -162,22 +162,6 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Course image — featured on the page */}
-      <section className="bg-gray-50 py-12 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-            The course
-          </h2>
-          <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200/80">
-            <img
-              src="/hero-bg.jpg"
-              alt="Ol' Colony Golf Course — scenic view of the course with water and greens"
-              className="w-full aspect-video object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Divisions Section */}
       <section id="divisions" className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
