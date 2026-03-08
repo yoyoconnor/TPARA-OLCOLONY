@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import BrandMark from "@/components/brand-mark";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -43,23 +44,19 @@ export default function RegisterPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-800 via-green-900 to-green-950 flex items-center justify-center p-4 py-12">
+    <div className="brand-shell flex min-h-screen items-center justify-center p-4 py-12">
       <div className="w-full max-w-lg">
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-2">
-            <div className="w-10 h-10 bg-white/10 backdrop-blur rounded-full flex items-center justify-center">
-              <span className="text-white font-bold">OC</span>
-            </div>
+        <div className="mb-8 text-center">
+          <Link href="/" className="inline-block">
+            <BrandMark
+              light
+              align="center"
+              subtitle="Create Your Account"
+            />
           </Link>
-          <h1 className="text-2xl font-bold text-white">
-            Ol&apos; Colony Golf Course
-          </h1>
-          <p className="text-green-200/70 text-sm mt-1">
-            Create Your Account
-          </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="brand-card rounded-2xl p-8">
           <h2 className="text-xl font-bold text-gray-900 mb-6">
             Join Ol&apos; Colony
           </h2>
@@ -76,7 +73,7 @@ export default function RegisterPage() {
                   onChange={(e) =>
                     setForm({ ...form, firstName: e.target.value })
                   }
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                  className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                   required
                 />
               </div>
@@ -90,7 +87,7 @@ export default function RegisterPage() {
                   onChange={(e) =>
                     setForm({ ...form, lastName: e.target.value })
                   }
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                  className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                   required
                 />
               </div>
@@ -105,7 +102,7 @@ export default function RegisterPage() {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="you@example.com"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                 required
               />
             </div>
@@ -119,7 +116,7 @@ export default function RegisterPage() {
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 placeholder="(205) 555-0000"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
               />
             </div>
 
@@ -134,7 +131,7 @@ export default function RegisterPage() {
                   onChange={(e) =>
                     setForm({ ...form, password: e.target.value })
                   }
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                  className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                   required
                 />
               </div>
@@ -148,7 +145,7 @@ export default function RegisterPage() {
                   onChange={(e) =>
                     setForm({ ...form, confirmPassword: e.target.value })
                   }
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                  className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                   required
                 />
               </div>
@@ -163,7 +160,7 @@ export default function RegisterPage() {
                 onChange={(e) =>
                   setForm({ ...form, experience: e.target.value })
                 }
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm bg-white"
+                className="brand-input w-full rounded-lg bg-white px-4 py-2.5 text-sm"
               >
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
@@ -184,8 +181,8 @@ export default function RegisterPage() {
                     onClick={() => toggleInterest(interest)}
                     className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
                       form.interests.includes(interest)
-                        ? "bg-green-700 text-white border-green-700"
-                        : "bg-white text-gray-600 border-gray-300 hover:border-green-400"
+                        ? "bg-[var(--brand-green)] text-white border-[var(--brand-green)]"
+                        : "bg-white text-gray-600 border-gray-300 hover:border-[var(--brand-green)]"
                     }`}
                   >
                     {interest}
@@ -199,7 +196,7 @@ export default function RegisterPage() {
                 type="checkbox"
                 checked={form.terms}
                 onChange={(e) => setForm({ ...form, terms: e.target.checked })}
-                className="mt-0.5 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                className="mt-0.5 rounded border-gray-300 text-[var(--brand-green)] focus:ring-[var(--brand-green)]"
                 required
               />
               <span className="text-sm text-gray-600">
@@ -209,7 +206,7 @@ export default function RegisterPage() {
 
             <button
               type="submit"
-              className="w-full bg-green-700 hover:bg-green-800 text-white py-2.5 rounded-lg font-medium transition-colors"
+              className="brand-button-primary w-full rounded-lg py-2.5 font-medium transition-colors"
             >
               Create Account
             </button>
@@ -220,7 +217,7 @@ export default function RegisterPage() {
               Already have an account?{" "}
               <Link
                 href="/login"
-                className="text-green-700 hover:text-green-800 font-medium"
+                className="font-medium text-[var(--brand-green)] hover:text-[var(--brand-brown)]"
               >
                 Sign In
               </Link>
@@ -231,7 +228,7 @@ export default function RegisterPage() {
         <div className="text-center mt-6">
           <Link
             href="/"
-            className="text-green-200/70 hover:text-white text-sm transition-colors"
+            className="text-sm text-white/70 transition-colors hover:text-white"
           >
             ← Back to home
           </Link>

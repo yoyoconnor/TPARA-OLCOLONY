@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ol' Colony Golf Course | Operations Platform",
+  title: "Ol' Colony Golf Course | A PARA Property",
   description:
-    "Unified operations platform for Ol' Colony Golf Course — a Tuscaloosa Parks and Recreation Association property. Manage memberships, academy programs, pro shop, grill, and more.",
+    "Unified operations platform for Ol' Colony Golf Course, a PARA property. Manage memberships, academy programs, tee times, pro shop, grill, and daily operations.",
 };
 
 export default function RootLayout({

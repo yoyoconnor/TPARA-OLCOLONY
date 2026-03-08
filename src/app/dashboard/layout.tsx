@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import BrandMark from "@/components/brand-mark";
+import Logo from "@/components/logo";
 import {
   LayoutDashboard,
   GraduationCap,
@@ -89,35 +91,30 @@ export default function DashboardLayout({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[rgba(247,241,231,0.45)]">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 w-64 bg-green-900 z-50 transform transition-transform duration-200 lg:translate-x-0 ${
+        className={`fixed top-0 left-0 bottom-0 z-50 w-64 transform transition-transform duration-200 lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        } brand-shell`}
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center justify-between px-4 h-16 border-b border-green-800">
-            <Link href="/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">OC</span>
-              </div>
-              <span className="text-white font-bold text-sm">
-                Ol&apos; Colony
-              </span>
+          <div className="flex h-22 items-start justify-between border-b border-white/10 px-4 py-4">
+            <Link href="/dashboard">
+              <BrandMark light compact subtitle="" />
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden text-green-300 hover:text-white"
+              className="text-white/70 hover:text-white lg:hidden"
             >
               <X className="w-5 h-5" />
             </button>
@@ -138,8 +135,8 @@ export default function DashboardLayout({
                       onClick={() => setSidebarOpen(false)}
                       className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                         isActive
-                          ? "bg-white/15 text-white"
-                          : "text-green-200/70 hover:bg-white/10 hover:text-white"
+                          ? "bg-white/16 text-white"
+                          : "text-white/70 hover:bg-white/10 hover:text-white"
                       }`}
                     >
                       <item.icon className="w-4.5 h-4.5 shrink-0" />
@@ -152,9 +149,9 @@ export default function DashboardLayout({
           </nav>
 
           {/* User section */}
-          <div className="p-4 border-t border-green-800">
+          <div className="border-t border-white/10 p-4">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 bg-green-700 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/14 text-sm font-semibold text-white">
                 {userName
                   .split(" ")
                   .map((n) => n[0])
@@ -165,14 +162,14 @@ export default function DashboardLayout({
                 <p className="text-white text-sm font-medium truncate">
                   {userName}
                 </p>
-                <p className="text-green-300/60 text-xs truncate">
+                <p className="truncate text-xs text-white/56">
                   {roleLabels[role] || role}
                 </p>
               </div>
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 text-green-300/60 hover:text-white text-sm transition-colors w-full"
+              className="flex w-full items-center gap-2 text-sm text-white/62 transition-colors hover:text-white"
             >
               <LogOut className="w-4 h-4" />
               Sign Out
@@ -181,7 +178,7 @@ export default function DashboardLayout({
               href="https://thecontech.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 pt-3 border-t border-green-800 text-green-400/60 hover:text-green-300 text-xs transition-colors w-full"
+              className="mt-3 w-full border-t border-white/10 pt-3 text-xs text-white/70 transition-colors hover:text-[var(--brand-green)]"
             >
               Built by Contech
             </a>
@@ -192,11 +189,11 @@ export default function DashboardLayout({
       {/* Main content */}
       <div className="lg:pl-64">
         {/* Top bar */}
-        <header className="sticky top-0 z-30 bg-white border-b border-gray-200">
+        <header className="sticky top-0 z-30 border-b border-[rgba(78,50,39,0.1)] bg-white/92 backdrop-blur">
           <div className="flex items-center justify-between h-16 px-4 sm:px-6">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden text-gray-500 hover:text-gray-700"
+              className="text-[rgba(78,50,39,0.7)] hover:text-[var(--brand-brown)] lg:hidden"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -213,14 +210,14 @@ export default function DashboardLayout({
             <div className="flex items-center gap-4">
               <Link
                 href="/dashboard/notifications"
-                className="relative text-gray-400 hover:text-gray-600 transition-colors"
+                className="relative text-[rgba(78,50,39,0.5)] transition-colors hover:text-[var(--brand-brown)]"
               >
                 <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-white text-[10px] font-bold flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-md bg-[var(--brand-green)] text-[10px] font-bold text-white">
                   3
                 </span>
               </Link>
-              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-semibold text-xs">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[var(--brand-cream)] text-[var(--brand-brown)] font-semibold text-xs">
                 {userName
                   .split(" ")
                   .map((n) => n[0])

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import BrandMark from "@/components/brand-mark";
 
 const ROLE_OPTIONS = [
   { label: "Member", value: "member" },
@@ -36,19 +37,19 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-800 via-green-900 to-green-950 flex items-center justify-center p-4">
+    <div className="brand-shell flex min-h-screen items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-2">
-            <div className="w-10 h-10 bg-white/10 backdrop-blur rounded-full flex items-center justify-center">
-              <span className="text-white font-bold">OC</span>
-            </div>
+        <div className="mb-8 text-center">
+          <Link href="/" className="inline-block">
+            <BrandMark
+              light
+              align="center"
+              subtitle="Operations Platform"
+            />
           </Link>
-          <h1 className="text-2xl font-bold text-white">Ol&apos; Colony Golf Course</h1>
-          <p className="text-green-200/70 text-sm mt-1">Operations Platform</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="brand-card rounded-2xl p-8">
           <h2 className="text-xl font-bold text-gray-900 mb-6">Sign In</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -61,7 +62,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                 required
               />
             </div>
@@ -75,7 +76,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm"
+                className="brand-input w-full rounded-lg px-4 py-2.5 text-sm"
                 required
               />
             </div>
@@ -87,7 +88,7 @@ export default function LoginPage() {
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all text-sm bg-white"
+                className="brand-input w-full rounded-lg bg-white px-4 py-2.5 text-sm"
               >
                 {ROLE_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -102,7 +103,7 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              className="w-full bg-green-700 hover:bg-green-800 text-white py-2.5 rounded-lg font-medium transition-colors mt-2"
+              className="brand-button-primary mt-2 w-full rounded-lg py-2.5 font-medium transition-colors"
             >
               Sign In
             </button>
@@ -113,7 +114,7 @@ export default function LoginPage() {
               Don&apos;t have an account?{" "}
               <Link
                 href="/register"
-                className="text-green-700 hover:text-green-800 font-medium"
+                className="font-medium text-[var(--brand-green)] hover:text-[var(--brand-brown)]"
               >
                 Register
               </Link>
@@ -124,7 +125,7 @@ export default function LoginPage() {
         <div className="text-center mt-6">
           <Link
             href="/"
-            className="text-green-200/70 hover:text-white text-sm transition-colors"
+            className="text-sm text-white/70 transition-colors hover:text-white"
           >
             ← Back to home
           </Link>
